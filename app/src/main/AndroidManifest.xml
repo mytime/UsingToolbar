@@ -1,0 +1,26 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.uhei.usingtoolbar">
+    <!--
+        android:theme="@style/AppTheme 改为
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar
+        -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <!--添加一个Activity-->
+        <activity android:name=".MainActivity"
+            android:label="MainActivity">
+            <!--启动标签-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
