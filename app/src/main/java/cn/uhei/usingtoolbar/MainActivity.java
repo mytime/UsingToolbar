@@ -4,12 +4,16 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 /**
- *  Androidmanifest.xml 修改  android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+ * Androidmanifest.xml 修改  android:theme="@style/Theme.AppCompat.Light.NoActionBar"
  */
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,15 +32,44 @@ public class MainActivity extends AppCompatActivity{
             public void onClick(View v) {
 
                 ActionBar actionBar = getSupportActionBar();
-                if (actionBar != null){
-                    if (actionBar.isShowing()){
+                if (actionBar != null) {
+                    if (actionBar.isShowing()) {
                         actionBar.hide();
-                    }else{
+                    } else {
                         actionBar.show();
                     }
                 }
 
             }
         });
+    }
+
+    //引入menu_layout.xml 样式并显示到界面上
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_layout, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //菜单点击动作
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.favorite:
+                    showTosat("喜欢");
+                return true;
+            case R.id.setting:
+                    showTosat("设置");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    private void showTosat(String str){
+        Toast.makeText(MainActivity.this,str,Toast.LENGTH_SHORT).show();
     }
 }

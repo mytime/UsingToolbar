@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--app:showAsAction="ifRoom" bar有位置就显示出来，没有位置就隐藏起来-->
+    <item
+        android:id="@+id/favorite"
+        android:icon="@drawable/favorite"
+        android:title="喜欢"
+        app:showAsAction="ifRoom"></item>
+    <!--app:showAsAction="never" 始终在侧边隐藏-->
+    <item
+        android:id="@+id/setting"
+        android:title="设置"
+        app:showAsAction="never"
+        >
+
+    </item>
+</menu>
