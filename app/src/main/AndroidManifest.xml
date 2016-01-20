@@ -21,6 +21,24 @@
             </intent-filter>
         </activity>
 
+        <!--android:parentActivityName="cn.uhei.usingtoolbar.MainActivity" 指定父级
+            android:name="android.support.PARENT_ACTIVITY" 指定父级
+            android:value="cn.uhei.usingtoolbar.MainActivity"  指定父级
+
+        -->
+
+        <activity android:name=".OtherActivity"
+            android:parentActivityName="cn.uhei.usingtoolbar.MainActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cn.uhei.usingtoolbar.MainActivity"
+                >
+
+            </meta-data>
+        </activity>
+
+
     </application>
 
 </manifest>

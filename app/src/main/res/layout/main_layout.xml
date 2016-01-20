@@ -30,5 +30,10 @@
         android:text="click"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <Button
+        android:text="start other activity"
+        android:onClick="otherActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

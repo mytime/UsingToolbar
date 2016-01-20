@@ -2,18 +2,40 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!--添加搜索按钮  android转为app命名空间
+      app:actionViewClass="android.support.v7.widget.SearchView" 指定引用的类是v7
+      app:showAsAction="ifRoom|collapseActionView" 有位置时显示图标，默认是收起搜索框
+      -->
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/search"
+        android:title="搜索"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView"></item>
+
+    <!--分享-->
+    <!--app:actionProviderClass 动作执行后使用的是什么实例-->
+    <item
+        android:id="@+id/share"
+        android:title="分享"
+        app:showAsAction="ifRoom"
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"
+
+        ></item>
+
+
     <!--app:showAsAction="ifRoom" bar有位置就显示出来，没有位置就隐藏起来-->
     <item
         android:id="@+id/favorite"
         android:icon="@drawable/favorite"
         android:title="喜欢"
-        app:showAsAction="ifRoom"></item>
+        app:showAsAction="never"></item>
     <!--app:showAsAction="never" 始终在侧边隐藏-->
     <item
         android:id="@+id/setting"
         android:title="设置"
         app:showAsAction="never"
-        >
+        ></item>
 
-    </item>
+
 </menu>

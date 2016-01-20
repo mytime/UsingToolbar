@@ -1,6 +1,8 @@
 package cn.uhei.usingtoolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 /**
@@ -50,6 +53,27 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_layout, menu);
 
+        //操作搜索
+        MenuItem menuItem = menu.findItem(R.id.search);
+//        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+        //监听
+        MenuItemCompat.setOnActionExpandListener(menuItem, new MenuItemCompat.OnActionExpandListener() {
+            //搜索条展开
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                showTosat("onMenuItemActionExpand");
+                return true;
+            }
+
+            //搜索条收起
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                showTosat("onMenuItemActionCollapse");
+                return true;
+            }
+        });
+
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -60,16 +84,22 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.favorite:
-                    showTosat("喜欢");
+                showTosat("喜欢");
                 return true;
             case R.id.setting:
-                    showTosat("设置");
+                showTosat("设置");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-    private void showTosat(String str){
-        Toast.makeText(MainActivity.this,str,Toast.LENGTH_SHORT).show();
+
+    private void showTosat(String str) {
+        Toast.makeText(MainActivity.this, str, Toast.LENGTH_SHORT).show();
+    }
+
+
+    public void otherActivity(View v){
+        startActivity(new Intent(this,OtherActivity.class));
     }
 }
